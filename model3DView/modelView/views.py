@@ -17,10 +17,13 @@ def render_3d_model(request, model_id):
     model = ThreeDModel.objects.get(id=model_id)
     model_file_path = model.file.url
 
+    file_extension = model_file_path.split('.')[-1].lower()
+
     context = {
         'model_id': model.id,
         'model_file_path': model_file_path,
-        'model_name': model.name
+        'model_name': model.name,
+        'file_extension': file_extension
     }
 
     return render(request, 'model_viewer.html', context)

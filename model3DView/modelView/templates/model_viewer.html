@@ -10,7 +10,11 @@
 	</style>
 </head>
 <body>
-	<model-viewer src="{{ model_file_path }}" alt="{{ model_name }}" auto-rotate camera-controls ar ios-src="{{ model_file_path }}"></model-viewer>
+	{% if file_extension == 'gltf' %}
+        <model-viewer src="{{ model_file_path }}" alt="{{ model_name }}" auto-rotate camera-controls ar ios-src="{{ model_file_path }}"></model-viewer>
+   {% else %}
+        <p>Unsupported file format.</p>
+    {% endif %}
 	<p>{{ model_file_path }}</p>
 </body>
 </html>
