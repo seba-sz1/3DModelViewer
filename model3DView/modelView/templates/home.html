@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+    <h1>3D Model Viewer - Home</h1>
+    <ul>
+        {% for model in models %}
+            <li>
+                <h2>{{ model.name }}</h2>
+                <p>{{ model.description }}</p>
+                <a href="{% url 'render_3d_model' model.id %}">View 3D Model</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
